@@ -23,5 +23,9 @@ class PostController extends Controller
 
       Post::create($incommingFields);
     }
+
+    public function showSinglePost(Post $post){//type hinting laravel wil automaticly query the table for us this this case.
+        return view('single-post',['post'=>$post]);
+    }
     
 }
