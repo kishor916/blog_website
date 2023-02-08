@@ -16,7 +16,7 @@ class PostController extends Controller
             'title'=>'required',
             'body'=>'required'
       ]);
-      $incommingFields['title']=strip_tags($incommingFields['title']);
+      $incommingFields['title']=strip_tags($incommingFields['title']);//strip_tage is used to remove unwanted html or php codes from the string.
       $incommingFields['body']=strip_tags($incommingFields['body']);
       
       $incommingFields['user_id'] = auth()->id(); //dianamic user id value

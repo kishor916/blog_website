@@ -22,8 +22,8 @@ class UserController extends Controller
             'password'=>['required','min:8','confirmed']
         ]);
         $incomingfields['password']= bcrypt($incomingfields['password']);
-        $user=User::create($incomingfields);
-        auth()->login($user);
+        $user=User::create($incomingfields);//new object of User model is created and connection to an database withthe same fields has been made in a single line opf code.
+        auth()->login($user);//this is to directly login to the newly created user account
         return redirect('/')->with('success','thank you for creating new acount');
     }
 
@@ -34,7 +34,7 @@ class UserController extends Controller
         ]);
         //auth() is a globlaly avaialebale method for authentation
         if (auth()->attempt(['username' => $incomingfields['loginusername'],'password'=>$incomingfields['loginpassword']])) {
-            $request->session()->regenerate();//creating cookie 
+            $request->session()->regenerate();//creating cookie, we use this cookie to track our user activity
             return redirect('/')->with('success','you have sucessfully loged in');
         }else{
             return redirect('/')->with('success','login failed, no such user in the database');
@@ -42,7 +42,7 @@ class UserController extends Controller
     }
 
     public function logout(){
-        auth()->logout();
+        auth()->logout();//this function will also distroy the session
         return redirect('/')->with('success','you are now sucessfully loged out');
     }
 }
