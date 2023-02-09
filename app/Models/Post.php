@@ -9,9 +9,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'body',
-        'user_id',
-    ];
+    protected $fillable = ['title','body','user_id',];
+
+    public function momo(){
+        return $this->belongsTo(User::class,'user_id');//representing relationship whith the User class using user_id.
+    }
 }
