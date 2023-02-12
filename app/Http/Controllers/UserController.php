@@ -45,4 +45,9 @@ class UserController extends Controller
         auth()->logout();//this function will also distroy the session
         return redirect('/')->with('success','you are now sucessfully loged out');
     }
+    public function profile(User $pizza){
+        // $thePost=$pizza->posts()->get();
+        // return $thePost;
+        return view('profile-post',['username'=>$pizza->username,'posts'=>$pizza->posts()->latest()->get()]);
+    }
 }

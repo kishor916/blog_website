@@ -24,8 +24,10 @@ Route::post('/login',[UserController::class, "login"])->middleware('guest');
 Route::post('/logout',[UserController::class, "logout"])->middleware('loginCheck');
 
 
-//blog post related routs
+//blog post related routes
 Route::get('/create-post',[PostController::class, "showCreateForm"])->middleware('loginCheck');
 Route::post('/create-post',[PostController::class, "storeNewPost"])->middleware('loginCheck');
 Route::get('/post/{post}',[PostController::class, "showSinglePost"]);
-  
+
+//profile related routes
+Route::get('/profile/{pizza:username}',[UserController::class,'profile']);
