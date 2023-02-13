@@ -30,4 +30,4 @@ Route::post('/create-post',[PostController::class, "storeNewPost"])->middleware(
 Route::get('/post/{post}',[PostController::class, "showSinglePost"]);
 
 //profile related routes
-Route::get('/profile/{pizza:username}',[UserController::class,'profile']);
+Route::get('/profile/{user:username}',[UserController::class,'profile']);
