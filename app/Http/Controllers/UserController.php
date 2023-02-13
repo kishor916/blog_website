@@ -46,8 +46,13 @@ class UserController extends Controller
         return redirect('/')->with('success','you are now sucessfully loged out');
     }
     public function profile(User $user){
-        // $thePost=$pizza->posts()->get();
-        // return $thePost;
+        //type hinting is being used here again,
+        //laravel will auatomatically lookup the table for us, 
+        //default lookup is based on the 'id' but here we have
+        //done the lookup based on the username
         return view('profile-post',['username'=>$user->username,'posts'=>$user->posts()->latest()->get(),'postCount'=>$user->posts()->count()]);
+        //here $user is an instance of the User model and thats why we are being able to use post()
+        //post() has been defined in the User model 
+        //inside the post is where we have defined the relationship between user tabel and post table. 
     }
 }
