@@ -2,14 +2,21 @@
     <div class="container py-md-5 container--narrow">
         <div class="d-flex justify-content-between">
             <h2>{{$post->title}}</h2>
+            
+            @can('update', $post)
+            {{-- this spane will only be shown i the user can update the post, which i sbeonmg defined in the policy --}}
             <span class="pt-2">
                 <a href="#" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit"><i
                         class="fas fa-edit"></i></a>
-                <form class="delete-post-form d-inline" action="#" method="POST">
+                <form class="delete-post-form d-inline" action="/post/{{$post->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
                     <button class="delete-post-button text-danger" data-toggle="tooltip" data-placement="top"
                         title="Delete"><i class="fas fa-trash"></i></button>
                 </form>
             </span>
+            @endcan
+
         </div>
 
         <p class="text-muted small mb-4">

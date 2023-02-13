@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -32,5 +34,19 @@ class PostController extends Controller
         $post['body']=Str::markdown($post->body);//using buitin markdown function
         return view('single-post',['post'=>$post]);
     }
-    
+
+    public function delete(Post $post){
+        if (auth()->user()->cant('delete',$post)) {
+            //idk why the fuck is vs code not getting cant() function
+            return 'you can not delete this post';
+        }
+     
+        try {
+           $post->delete();
+        } catch (Exception $e) {
+           return redirect('/profile/'. auth()->user()->username)->with("error","post delete failed");
+        }
+     
+        return redirect('/profile/'. auth()->user()->username)->with("success","post successfully deleted");
+    }
 }
