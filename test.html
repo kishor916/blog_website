@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Doctor Appointment Website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container">
+		<a class="navbar-brand" href="#">Doctor Appointment Website</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">Welcome to Doctor Appointment Website</h1>
+		<p class="lead">Find the best doctors and book appointments online.</p>
+	</div>
+</div>
+
+<!-- Login and Signup Forms -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Login</h5>
+					<form>
+						<div class="form-group">
+							<label for="loginEmail">Email address</label>
+							<input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="loginPassword">Password</label>
+							<input type="password" class="form-control" id="loginPassword" placeholder="Password">
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Sign Up</h5>
+					<form>
+						<div class="form-group">
+							<label for="signupFirstName">First Name</label>
+							<input type="text" class="form-control" id="signupFirstName" placeholder="Enter first name">
+						</div>
+						<div class="form-group">
+							<label for="signupLastName">Last Name</label>
+							<input type="text" class="form-control" id="signupLastName" placeholder="Enter last name">
+						</div>
+								<div class="form-group">
+							<label for="signupEmail">Email address</label>
+							<input type="email" class="form-control" id="signupEmail" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="signupPassword">Password</label>
+							<input type="password" class="form-control" id="signupPassword" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<label for="signupConfirmPassword">Confirm Password</label>
+							<input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password">
+						</div>
+						<div class="form-group">
+							<label for="signupGender">Gender</label>
+							<select class="form-control" id="signupGender">
+								<option value="male">Male</option>
+								<option value="female">Female</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="signupPhone">Phone Number</label>
+							<input type="tel" class="form-control" id="signupPhone" placeholder="Enter phone number">
+						</div>
+						<button type="submit" class="btn btn-primary">Sign Up</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-3">
+	<div class="container text-center">
+		<p>Doctor Appointment Website &copy; 2023</p>
+	</div>
+</footer>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
