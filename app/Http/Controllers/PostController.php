@@ -10,8 +10,19 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function showCreateForm(){
-        return view('create-post');
+    public function actuallyUpdate(Post $post, Request $request){
+        $incommingFields= $request->validate([
+            'title'=>'required',
+            'body'=>'required'
+      ]);
+      $incommingFields['title']=strip_tags($incommingFields['title']);//strip_tage is used to remove unwanted html or php codes from the string.
+      $incommingFields['body']=strip_tags($incommingFields['body']);
+
+      $post->update($incommingFields);
+      return back()->with('success','post updated');
+    }
+    public function showEditForm(Post $post){
+        return view('edit-post',['post' => $post]);
     }
 
     public function storeNewPost(Request $request){
@@ -31,7 +42,7 @@ class PostController extends Controller
     }
 
     public function showSinglePost(Post $post){//type hinting(matching the post variable to the post variable from the route) laravel wil automaticly query the table for us this this case.
-        $post['body']=Str::markdown($post->body);//using buitin markdown function
+        $post['body']=strip_tags(Str::markdown($post->body));//using buitin markdown function
         return view('single-post',['post'=>$post]);
     }
 

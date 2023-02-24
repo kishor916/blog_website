@@ -6,7 +6,7 @@
             @can('update', $post)
             {{-- this spane will only be shown i the user can update the post, which i sbeonmg defined in the policy --}}
             <span class="pt-2">
-                <a href="#" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit"><i
+                <a href="/post/{{$post->id}}/edit" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit"><i
                         class="fas fa-edit"></i></a>
                 <form class="delete-post-form d-inline" action="/post/{{$post->id}}" method="POST">
                     @csrf
