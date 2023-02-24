@@ -16,6 +16,10 @@ use Doctrine\DBAL\Driver\Middleware;
 |
 */
 
+Route::get('/admins-only',function(){
+    return 'only admins can see this page';
+})->middleware('can:visitAdminPages');
+
 //user realted routs
 Route::get('/',[UserController::class, "showCorrectHomepage"])->name('login');
 Route::post('/register',[UserController::class, "register"])->middleware('guest');

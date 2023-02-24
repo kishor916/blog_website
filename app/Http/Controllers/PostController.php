@@ -25,6 +25,9 @@ class PostController extends Controller
         return view('edit-post',['post' => $post]);
     }
 
+    public function showCreateForm(){
+    return view('create-post');
+    }
     public function storeNewPost(Request $request){
       $incommingFields= $request->validate([
             'title'=>'required',
