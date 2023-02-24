@@ -32,6 +32,6 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('visitAdminPages',function($user){
             return $user->isAdmin === 1;
         });
-        
+        //chnges
     }
 }
