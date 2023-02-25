@@ -50,17 +50,8 @@ class PostController extends Controller
     }
 
     public function delete(Post $post){
-        if (auth()->user()->cant('delete',$post)) {
-            //idk why the fuck is vs code not getting cant() function
-            return 'you can not delete this post';
-        }
-     
-        try {
-           $post->delete();
-        } catch (Exception $e) {
-           return redirect('/profile/'. auth()->user()->username)->with("error","post delete failed");
-        }
-     
+        $post->delete();
         return redirect('/profile/'. auth()->user()->username)->with("success","post successfully deleted");
     }
+
 }
